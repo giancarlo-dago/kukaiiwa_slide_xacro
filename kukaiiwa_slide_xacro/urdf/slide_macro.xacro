@@ -1,23 +1,23 @@
 <?xml version="1.0"?>
 
-<robot name="kukaiwaa_macro" xmlns:xacro="http://wiki.ros.org/xacro">
+<robot name="slide_macro" xmlns:xacro="http://wiki.ros.org/xacro">
 
-	<xacro:macro name="base_link_macro" params="base_link_name">
-		<link name="${base_link_name}">
+	<xacro:macro name="slide_macro" params="slide_name">
+		<link name="${slide_name}">
 			<visual>
 				<geometry>
-					<cylinder length="5" radius="8"/>
+					<box size="3 20 20"/>
 				</geometry>
-				<origin rpy="0 0 0" xyz="0 0 0"/>
-				<material name="yellow">
-					<color rgba="1 1 0 1"/>
+				<origin rpy="0 1.57 0" xyz="0 0 0"/>
+				<material name="red">
+					<color rgba="1 0 0 1"/>
 				</material>
 			</visual>
 			<collision>
 				<geometry>
-					<cylinder length="5" radius="8"/>
+					<box size="3 20 20"/>
 				</geometry>
-				<origin rpy="0 0 0" xyz="0 0 0"/>
+				<origin rpy="0 1.57 0" xyz="0 0 0"/>
 			</collision>
 			<inertial>
 				<mass value="1"/>
@@ -26,28 +26,32 @@
 		</link>
 	</xacro:macro>
 
-	<xacro:macro name="kukaiiwa_joint" params="name type parent child *origin *axis *limit">
-		<joint name="${name}" type="${type}">
+	<xacro:macro name="wheel_to_plane_joint" params="name parent child *origin">
+		<joint name="${name}" type="revolute">
 			<parent link="${parent}" />
 			<child link="${child}" />
 	   		<xacro:insert_block name="origin" />
-			<xacro:insert_block name="axis" />
-			<xacro:insert_block name="limit"/>
-			<dynamics damping="50" friction="1"/>
+			<axis xyz="1 0 0"/>
+			<limit effort="1" velocity="2.5" upper="-3.1415" lower="3.1415"/>
+			<dynamics damping="10" friction="1"/>
 		</joint>
 	</xacro:macro>
 
-	<xacro:macro name="kukaiiwa_link" params="name *geometry *origin">
+	<xacro:macro name="wheel" params="name *origin">
 		<link name="${name}">
 			<visual>
-				<xacro:insert_block name="geometry" />
+				<geometry>
+					<cylinder length="2" radius="2"/>
+				</geometry>
 				<xacro:insert_block name="origin" />			
-				<material name="red">
+				<material name="blue">
 				  <color rgba="0 0 1 1"/>
 				</material>
 			</visual>
 			<collision>
-				<xacro:insert_block name="geometry" />
+				<geometry>
+					<cylinder length="2" radius="2"/>
+				</geometry>
 				<xacro:insert_block name="origin" />		
 			</collision>
 			<inertial>

@@ -5,7 +5,8 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /RobotModel1
+        - /Status1
+        - /Grid1
       Splitter Ratio: 0.5
     Tree Height: 549
   - Class: rviz/Selection
@@ -49,7 +50,7 @@ Visualization Manager:
         Y: 0
         Z: 0
       Plane: XY
-      Plane Cell Count: 15
+      Plane Cell Count: 18
       Reference Frame: <Fixed Frame>
       Value: true
     - Alpha: 1
@@ -82,6 +83,26 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        front_whell_dx:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_whell_sx:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_whell_dx:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_whell_sx:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         second_link:
           Alpha: 1
           Show Axes: false
@@ -93,6 +114,11 @@ Visualization Manager:
           Show Trail: false
           Value: true
         sixth_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        slide:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -108,49 +134,11 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
-    - Class: rviz/TF
-      Enabled: true
-      Frame Timeout: 15
-      Frames:
-        All Enabled: true
-        base_link:
-          Value: true
-        fifth_link:
-          Value: true
-        first_link:
-          Value: true
-        fourth_link:
-          Value: true
-        second_link:
-          Value: true
-        seventh_link:
-          Value: true
-        sixth_link:
-          Value: true
-        third_link:
-          Value: true
-      Marker Scale: 15
-      Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: true
-      Tree:
-        base_link:
-          first_link:
-            second_link:
-              third_link:
-                fourth_link:
-                  fifth_link:
-                    sixth_link:
-                      seventh_link:
-                        {}
-      Update Interval: 0
-      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_link
+    Fixed Frame: slide
     Frame Rate: 30
   Name: root
   Tools:
@@ -174,7 +162,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 338.1835632324219
+      Distance: 311.1755676269531
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -189,10 +177,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.3197973072528839
+      Pitch: 0.2297976166009903
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.728572368621826
+      Yaw: 4.088522911071777
     Saved: ~
 Window Geometry:
   Displays:

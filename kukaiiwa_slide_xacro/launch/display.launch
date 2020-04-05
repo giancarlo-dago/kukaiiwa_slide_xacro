@@ -2,12 +2,12 @@
 
 <launch>
 	<arg name="model" />
-	<param name="robot_description" textfile="$(find kukaiiwa_xacro)/urdf/kukaiiwa_generated.urdf" />
+	<param name="robot_description" textfile="$(find kukaiiwa_slide_xacro)/urdf/slide_generated.urdf" />
 	<param name="use_gui" value="true"/>
 
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 	
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find kukaiiwa_xacro)/urdf.rviz" required="true" />
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find kukaiiwa_slide_xacro)/urdf.rviz" required="true" />
 
 </launch>

@@ -1,8 +1,73 @@
 <?xml version="1.0"?>
 
-<robot name="kukaiiwa" xmlns:xacro="http://wiki.ros.org/xacro">
-    <xacro:include filename="$(find kukaiiwa_xacro)/urdf/kukaiiwa_macro.xacro" />
+<robot name="slide" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:include filename="$(find kukaiiwa_slide_xacro)/urdf/slide_macro.xacro" />
+	<xacro:include filename="$(find kukaiiwa_slide_xacro)/urdf/kukaiiwa_macro.xacro" />
+	    
+		<!-- slide -->
+		<xacro:slide_macro 
+			slide_name="slide">
+		</xacro:slide_macro>
 	
+		<!-- first joint wheel -->
+		<xacro:wheel_to_plane_joint
+			name="front_whell_dx_joint"
+			parent="slide"
+			child="front_whell_dx">
+			<origin xyz="8 7.5 -3.5" />
+		</xacro:wheel_to_plane_joint>
+
+		<!-- first wheel-->
+		<xacro:wheel name="front_whell_dx">
+			<origin xyz="0 0 0" rpy="0 1.57 0"/>
+		</xacro:wheel>
+		
+		<!-- second joint wheel -->
+		<xacro:wheel_to_plane_joint
+			name="front_whell_sx_joint"
+			parent="slide"
+			child="front_whell_sx">
+			<origin xyz="-8 7.5 -3.5" />
+		</xacro:wheel_to_plane_joint>
+
+		<!-- second wheel-->
+		<xacro:wheel name="front_whell_sx">
+			<origin xyz="0 0 0" rpy="0 1.57 0"/>
+		</xacro:wheel>
+		
+		<!-- third joint wheel-->
+		<xacro:wheel_to_plane_joint
+			name="rear_whell_dx_joint"
+			parent="slide"
+			child="rear_whell_dx">
+			<origin xyz="8 -7.5 -3.5" />
+		</xacro:wheel_to_plane_joint>
+
+		<!-- third wheel-->
+		<xacro:wheel name="rear_whell_dx">
+			<origin xyz="0 0 0" rpy="0 1.57 0"/>
+		</xacro:wheel>
+		
+		<!-- fourh joint wheel-->
+		<xacro:wheel_to_plane_joint
+			name="rear_whell_sx_joint"
+			parent="slide"
+			child="rear_whell_sx">
+			<origin xyz="-8 -7.5 -3.5" />
+		</xacro:wheel_to_plane_joint>
+
+		<!-- fourth wheel-->
+		<xacro:wheel name="rear_whell_sx">
+			<origin xyz="0 0 0" rpy="0 1.57 0"/>
+		</xacro:wheel>
+		
+		<!-- robot_to_slide_joint-->
+		<joint name="robot_to_slide" type="fixed">
+			<parent link="slide" />
+			<child link="base_link" />
+			<origin xyz="0 0 1.5"/>
+		</joint>
+			
 		<!-- base link -->
 		<xacro:base_link_macro 
 			base_link_name="base_link">
@@ -24,7 +89,7 @@
 			<geometry>
 				<cylinder length="20" radius="5"/>
 			</geometry>
-			<origin xyz="0 0 12.5" rpy="0 0 0"/>
+			<origin xyz="0 0 15" rpy="0 0 0"/>
 		</xacro:kukaiiwa_link>
 
 		<!-- second joint -->
@@ -33,7 +98,7 @@
 			type="revolute"
 			parent="first_link"
 			child="second_link">
-			<origin xyz="0 0 17.5"/>
+			<origin xyz="0 0 20"/>
 			<axis xyz="1 0 0"/>
 			<limit effort="176" velocity="1.96" lower="-2.09" upper="2.09" />
 		</xacro:kukaiiwa_joint>
@@ -140,5 +205,5 @@
 			</geometry>
 			<origin xyz="0 0 10" rpy="0 0 0"/>
 		</xacro:kukaiiwa_link>
-		
+
 </robot>
