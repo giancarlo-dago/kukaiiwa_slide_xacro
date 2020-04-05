@@ -7,7 +7,7 @@ class PUB {
 		ros::NodeHandle _nh;
 		ros::Publisher _parrot_pub;	
 	public:
-		PARROT_PUB();
+		PUB();
 		void publishing(std_msgs::String word);
 };
 
