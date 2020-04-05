@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+
+<robot name="kukaiiwa" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:include filename="$(find kukaiiwa_xacro)/urdf/kukaiiwa_macro.xacro" />
+	
+		<!-- base link -->
+		<xacro:base_link_macro 
+			base_link_name="base_link">
+		</xacro:base_link_macro>
+	
+		<!-- first joint -->
+		<xacro:kukaiiwa_joint
+			name="first_joint"
+			type="revolute"
+			parent="base_link"
+			child="first_link">
+			<origin xyz="0 0 0" />
+			<axis xyz="0 0 1"/>
+			<limit effort="176" velocity="1.96" lower="-2.97" upper="2.97" /> <!-- effort in Nm, velocity in rad/s lower e upper in rad -->
+		</xacro:kukaiiwa_joint>
+
+		<!-- first link-->
+		<xacro:kukaiiwa_link name="first_link">
+			<geometry>
+				<cylinder length="20" radius="5"/>
+			</geometry>
+			<origin xyz="0 0 12.5" rpy="0 0 0"/>
+		</xacro:kukaiiwa_link>
+
+		<!-- second joint -->
+		<xacro:kukaiiwa_joint
+			name="second_joint"
+			type="revolute"
+			parent="first_link"
+			child="second_link">
+			<origin xyz="0 0 17.5"/>
+			<axis xyz="1 0 0"/>
+			<limit effort="176" velocity="1.96" lower="-2.09" upper="2.09" />
+		</xacro:kukaiiwa_joint>
+
+		<!-- second link -->
+		<xacro:kukaiiwa_link name="second_link">
+			<geometry>
+				<cylinder length="20" radius="5"/>
+			</geometry>
+			<origin xyz="10 0 0" rpy="0 1.57 0"/>
+		</xacro:kukaiiwa_link>
+		
+		<!-- third joint -->
+		<xacro:kukaiiwa_joint
+			name="third_joint"
+			type="revolute"
+			parent="second_link"
+			child="third_link">
+			<origin xyz="15 0 0"/>
+			<axis xyz="0 0 1"/>
+			<limit effort="110" velocity="2" lower="-2.97" upper="2.97" />
+		</xacro:kukaiiwa_joint>
+		
+		<!-- third link  -->
+		<xacro:kukaiiwa_link name="third_link">
+			<geometry>
+				<cylinder length="40" radius="5"/>
+			</geometry>
+			<origin xyz="0 0 20" rpy="0 0 0"/>
+		</xacro:kukaiiwa_link>
+				
+		<!-- fourth joint -->
+		<xacro:kukaiiwa_joint
+			name="forth_joint"
+			type="revolute"
+			parent="third_link"
+			child="fourth_link">
+			<origin xyz="0 0 35"/>
+			<axis xyz="1 0 0"/>
+			<limit effort="110" velocity="2.6" lower="-2.09" upper="2.09" />
+		</xacro:kukaiiwa_joint>
+		
+		<!-- fourth link -->
+		<xacro:kukaiiwa_link name="fourth_link">
+			<geometry>
+				<cylinder length="20" radius="5"/>
+			</geometry>
+			<origin xyz="-10 0 0" rpy="0 1.57 0"/>
+		</xacro:kukaiiwa_link>
+		
+		<!-- fifth joint -->
+		<xacro:kukaiiwa_joint
+			name="fifth_joint"
+			type="revolute"
+			parent="fourth_link"
+			child="fifth_link">
+			<origin xyz="-15 0 0"/>
+			<axis xyz="0 0 1"/>
+			<limit effort="110" velocity="2.8" lower="-2.97" upper="2.97" />
+		</xacro:kukaiiwa_joint>
+		
+		<!-- fifth link -->
+		<xacro:kukaiiwa_link name="fifth_link">
+			<geometry>
+				<cylinder length="40" radius="5"/>
+			</geometry>
+			<origin xyz="0 0 20" rpy="0 0 0"/>
+		</xacro:kukaiiwa_link>
+		
+		<!-- sixth joint -->
+		<xacro:kukaiiwa_joint
+			name="sixth_joint"
+			type="revolute"
+			parent="fifth_link"
+			child="sixth_link">
+			<origin xyz="0 0 35"/>
+			<axis xyz="1 0 0"/>
+			<limit effort="40" velocity="3.6" lower="-2.09" upper="2.09" />
+		</xacro:kukaiiwa_joint>
+		
+		<!-- sixth link -->
+		<xacro:kukaiiwa_link name="sixth_link">
+			<geometry>
+				<cylinder length="20" radius="5"/>
+			</geometry>
+			<origin xyz="10 0 0" rpy="0 1.57 0"/>
+		</xacro:kukaiiwa_link>
+		
+		<!-- seventh joint -->
+		<xacro:kukaiiwa_joint
+			name="seventh_joint"
+			type="revolute"
+			parent="sixth_link"
+			child="seventh_link">
+			<origin xyz="15 0 0"/>
+			<axis xyz="0 0 1"/>
+			<limit effort="40" velocity="3.6" lower="-3.05" upper="3.05" />
+		</xacro:kukaiiwa_joint>
+		
+		<!-- seventh link -->
+		<xacro:kukaiiwa_link name="seventh_link">
+			<geometry>
+				<cylinder length="20" radius="5"/>
+			</geometry>
+			<origin xyz="0 0 10" rpy="0 0 0"/>
+		</xacro:kukaiiwa_link>
+		
+</robot>
